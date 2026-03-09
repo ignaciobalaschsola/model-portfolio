@@ -3,45 +3,103 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Ignacio Balasch – modeling portfolio for fashion, commercial and advertisement projects. Clean, editorial visuals.">
-  <title>Ignacio Balasch | Portfolio</title>
-  <!-- favicons (copy from your other portfolio if needed) -->
+  <meta name="description" content="Ignacio Balasch Sola — model based in Madrid. Fashion, editorial and commercial work.">
+  <title>Ignacio Balasch Sola</title>
+
   <link rel="icon" href="favicons/favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
-  <!-- SEO / social snippets -->
-  <meta property="og:title" content="Ignacio Balasch | Portfolio">
-  <meta property="og:description" content="Modeling portfolio showcasing work for fashion, commercial and advertisement opportunities.">
+
+  <meta property="og:title" content="Ignacio Balasch Sola">
+  <meta property="og:description" content="Model based in Madrid. Fashion, editorial and commercial work.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://<your-github-username>.github.io/ModelingAdvertisementPortfolio/">
+  <meta property="og:url" content="https://model-portfolio.ignacio.balasch.es">
   <meta property="og:image" content="media/photos/main.jpeg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- refined typefaces for editorial feel -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
-  <!-- lightGallery for polished, modern gallery (images + video) -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/css/lightgallery-bundle.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/lightgallery.umd.min.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/plugins/video/lg-video.umd.min.js" defer></script>
-  <!-- Masonry for robust layout -->
-  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js" defer></script>
-  <!-- imagesLoaded helps layout after images/videos load -->
-  <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js" defer></script>
   <script src="script.js" defer></script>
 </head>
 <body>
-  <main>
-    <!-- transparent header spacer to add vertical cushioning -->
-    <header class="spacer" aria-hidden="true"></header>
-    <section id="portfolio" class="flow" aria-label="Portfolio work">
-      <!-- items injected by script.js -->
-    </section>
-  </main>
 
+  <!-- STICKY HEADER -->
+  <header>
+    <div class="header-inner">
+      <a href="#" class="header-name">IBS</a>
+      <nav>
+        <a href="#composites">Photos</a>
+        <a href="#lifestyle">Videos</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-  <script>/* placeholder for inline script if needed */</script>
+  <!-- HERO: split layout — text left, photo right -->
+  <section class="hero">
+    <div class="hero-text">
+      <div class="hero-text-inner">
+        <h1>Ignacio<br>Balasch<br>Sola</h1>
+        <ul class="stats" aria-label="Model statistics">
+          <li><span class="stat-label">Height</span><span class="stat-value">185 cm</span></li>
+          <li><span class="stat-label">Weight</span><span class="stat-value">72 kg</span></li>
+          <li><span class="stat-label">Eyes</span><span class="stat-value">Blue</span></li>
+          <li><span class="stat-label">Hair</span><span class="stat-value">Blonde</span></li>
+          <li><span class="stat-label">Shoes</span><span class="stat-value">EU 42</span></li>
+          <li><span class="stat-label">Location</span><span class="stat-value">Madrid</span></li>
+        </ul>
+        <p class="intro">Fashion · Editorial · Commercial</p>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="media/photos/main.jpeg" alt="Ignacio Balasch Sola">
+    </div>
+  </section>
+
+  <!-- COMPOSITES -->
+  <section id="composites">
+    <div class="section-header">
+      <span class="section-label">Composites</span>
+    </div>
+    <div class="comp-grid">
+      <div class="comp-item" data-index="1">
+        <img src="media/photos/headshot.jpg" alt="Headshot">
+        <span class="comp-caption">Headshot</span>
+      </div>
+      <div class="comp-item" data-index="2">
+        <img src="media/photos/34shot.jpg" alt="3/4 shot">
+        <span class="comp-caption">3/4 shot</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIFESTYLE VIDEOS -->
+  <section id="lifestyle">
+    <div class="section-header">
+      <span class="section-label">Lifestyle</span>
+    </div>
+    <div class="video-grid" id="video-grid">
+      <!-- populated by script.js -->
+    </div>
+  </section>
+
+  <!-- CONTACT / FOOTER -->
+  <footer id="contact">
+    <p class="contact-label">Get in touch</p>
+    <a class="contact-email" href="mailto:ignacio@balasch.es">ignacio@balasch.es</a>
+    <p class="contact-location">Madrid, Spain</p>
+  </footer>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" role="dialog" aria-modal="true" aria-label="Media viewer">
+    <button class="lb-close" aria-label="Close">&times;</button>
+    <button class="lb-prev" aria-label="Previous">&#8592;</button>
+    <button class="lb-next" aria-label="Next">&#8594;</button>
+    <div class="lb-content"></div>
+  </div>
+
 </body>
 </html>
