@@ -1,0 +1,52 @@
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Scratch / working folders — never push
+media/new_media/
+media/old_media/
+
+# Local-only notes / debug
+media/README.md
+FIX_TERMINAL.md
+
+# Intro videos: only horizontal versions are used by the site
+media/introductions/*_vertical.mp4
+
+# Editorial: ignore all, then whitelist photos referenced by script.js
+media/editorial-shots/**
+!media/editorial-shots/
+!media/editorial-shots/0. Tier S/
+!media/editorial-shots/1. Tier A/
+!media/editorial-shots/2. Tier B/
+!media/editorial-shots/0. Tier S/DSC07306.jpg
+!media/editorial-shots/0. Tier S/DSC07388.jpg
+!media/editorial-shots/0. Tier S/DSC07526.jpg
+!media/editorial-shots/1. Tier A/DSC07009.jpg
+!media/editorial-shots/1. Tier A/DSC07162.jpg
+!media/editorial-shots/2. Tier B/DSC07155.jpg
+!media/editorial-shots/2. Tier B/DSC07607.jpg
+!media/editorial-shots/2. Tier B/DSC07696.jpg
+!media/editorial-shots/2. Tier B/DSC07702.jpg
+
+# Polaroids: ignore all, then whitelist photos referenced by script.js
+media/polaroids/**
+!media/polaroids/
+!media/polaroids/Nacho_Polas_MIAH (1).jpg
+!media/polaroids/Nacho_Polas_MIAH (2).jpg
+!media/polaroids/Nacho_Polas_MIAH (3).jpg
+!media/polaroids/Nacho_Polas_MIAH (4).jpg
+!media/polaroids/Nacho_Polas_MIAH (5).jpg
+!media/polaroids/Nacho_Polas_MIAH (6).jpg
+!media/polaroids/Nacho_Polas_MIAH (7).jpg
+!media/polaroids/Nacho_Polas_MIAH (8).jpg
+!media/polaroids/Nacho_Polas_MIAH (9).jpg
+!media/polaroids/Nacho_Polas_MIAH (10).jpg
+!media/polaroids/Nacho_Polas_MIAH (11).jpg
+!media/polaroids/Nacho_Polas_MIAH (12).jpg
+!media/polaroids/Nacho_Polas_MIAH (13).jpg
+!media/polaroids/Nacho_Polas_MIAH (14).jpg
+!media/polaroids/Nacho_Polas_MIAH (19).jpg
+!media/polaroids/Nacho_Polas_MIAH (20).jpg
+!media/polaroids/Nacho_Polas_MIAH (21).jpg
+!media/polaroids/Nacho_Polas_MIAH (22).jpg
