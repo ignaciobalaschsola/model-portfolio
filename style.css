@@ -328,9 +328,19 @@ h1 {
   border-right: none;
 }
 
-/* Bottom row (last two): bottom border removed */
-.video-item:nth-last-child(-n+2) {
+/* Bottom edge: remove bottom border on items in the last row.
+   Works for both even and odd total counts. */
+.video-item:last-child {
   border-bottom: none;
+}
+.video-item:nth-last-child(2):nth-child(odd) {
+  border-bottom: none;
+}
+
+/* Odd total: last item sits alone in column 1 — drop its right border
+   so there's no dangling vertical line in the empty column 2. */
+.video-item:last-child:nth-child(odd) {
+  border-right: none;
 }
 
 .video-item video {
@@ -355,6 +365,178 @@ h1 {
   color: #ffffff;
   pointer-events: none;
   text-shadow: 0 1px 10px rgba(0, 0, 0, 0.55);
+}
+
+/* META PILL (date + location on each tile) ------------------- */
+.photo-item,
+.video-item,
+.casual-item {
+  position: relative;
+}
+
+.meta-pill {
+  position: absolute;
+  top: 0.6rem;
+  left: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  padding: 0.3rem 0.5rem 0.32rem;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  pointer-events: none;
+  z-index: 2;
+  max-width: calc(100% - 1.2rem);
+}
+
+.meta-pill .meta-loc {
+  font-size: 0.52rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 500;
+  line-height: 1.1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.meta-pill .meta-date {
+  font-size: 0.48rem;
+  letter-spacing: 0.1em;
+  opacity: 0.8;
+  line-height: 1.1;
+}
+
+/* Polaroids: pill sits inside the polaroid frame (over the photo) */
+.polaroid-grid .meta-pill {
+  top: 1.05rem;
+  left: 1.05rem;
+}
+
+/* Lightbox pill: bottom-left of viewer */
+.lb-pill {
+  position: absolute;
+  top: auto;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+@media (max-width: 480px) {
+  .meta-pill {
+    top: 0.4rem;
+    left: 0.4rem;
+    padding: 0.25rem 0.4rem;
+  }
+  .meta-pill .meta-loc { font-size: 0.5rem; letter-spacing: 0.1em; }
+  .meta-pill .meta-date { font-size: 0.46rem; }
+  .polaroid-grid .meta-pill { top: 0.85rem; left: 0.85rem; }
+}
+
+/* PAGE INTRO (off-duty header band) --------------------------- */
+.page-intro {
+  padding: 6rem 2.5rem 4rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.page-intro-blurb {
+  margin-top: 1.25rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--black);
+  letter-spacing: 0.01em;
+  max-width: 56ch;
+  font-weight: 300;
+}
+
+@media (max-width: 860px) {
+  .page-intro {
+    padding: 4rem 1.5rem 3rem;
+  }
+}
+
+/* MORE-MEDIA CTA (main page → off-duty) ----------------------- */
+.more-cta {
+  padding: 4rem 2rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.more-cta a {
+  font-size: 0.65rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.35rem;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.more-cta a:hover {
+  color: var(--black);
+  border-bottom-color: var(--black);
+}
+
+.more-cta a .arrow {
+  display: inline-block;
+  margin-left: 0.4rem;
+  transition: transform 0.2s;
+}
+
+.more-cta a:hover .arrow {
+  transform: translateX(3px);
+}
+
+/* OFF-DUTY / CASUAL ------------------------------------------- */
+#casual {
+  border-bottom: 1px solid var(--border);
+}
+
+.casual-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.casual-item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--white);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  aspect-ratio: 3 / 4;
+}
+
+.casual-item:nth-child(3n) {
+  border-right: none;
+}
+
+.casual-item img,
+.casual-item video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.casual-item:hover img,
+.casual-item:hover video {
+  transform: scale(1.025);
+}
+
+@media (max-width: 860px) {
+  .casual-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .casual-item:nth-child(3n) {
+    border-right: 1px solid var(--border);
+  }
+  .casual-item:nth-child(2n) {
+    border-right: none;
+  }
 }
 
 /* FOOTER / CONTACT -------------------------------------------- */
@@ -564,7 +746,17 @@ h1 {
   }
 
   .header-inner {
-    padding: 0 1.25rem;
+    padding: 0 1rem;
+    gap: 0.75rem;
+  }
+
+  nav {
+    gap: 0.95rem;
+  }
+
+  nav a {
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
   }
 
   .section-header {
@@ -573,5 +765,17 @@ h1 {
 
   .lb-content {
     max-width: calc(100vw - 2rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .header-name {
+    display: none;
+  }
+  .header-inner {
+    justify-content: center;
+  }
+  nav {
+    gap: 1.1rem;
   }
 }

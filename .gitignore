@@ -13,6 +13,34 @@ FIX_TERMINAL.md
 # Intro videos: only horizontal versions are used by the site
 media/introductions/*_vertical.mp4
 
+# Skip raw .mov source clips — only transcoded .mp4 versions are used
+media/skills/*.mov
+media/casual/*.mov
+
+# Skills: ignore all, then whitelist clips referenced by script.js
+media/skills/**
+!media/skills/
+!media/skills/tennis.mp4
+!media/skills/golf.mp4
+!media/skills/ski.mp4
+!media/skills/raisingsail.mp4
+
+# Off-Duty / casual: ignore all, then whitelist files referenced by script.js
+media/casual/**
+!media/casual/
+!media/casual/river.mp4
+!media/casual/palas.mp4
+!media/casual/skiing.mp4
+!media/casual/alhambra.jpeg
+!media/casual/filomena.jpeg
+!media/casual/hike_smile.jpeg
+!media/casual/hike_serious.jpeg
+!media/casual/dog_beach.jpeg
+!media/casual/skiing_far.jpeg
+!media/casual/desert.jpeg
+!media/casual/madrid_door.jpeg
+!media/casual/paddleboarding.jpeg
+
 # Editorial: ignore all, then whitelist photos referenced by script.js
 media/editorial-shots/**
 !media/editorial-shots/
